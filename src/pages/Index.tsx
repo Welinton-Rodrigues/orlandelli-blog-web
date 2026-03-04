@@ -8,7 +8,7 @@ import { Layout } from "@/components/Layout";
 import heroStudio from "@/assets/hero-studio.jpg";
 import carouselYang from "@/assets/carousel-yang.jpg";
 import carouselCartoons from "@/assets/carousel-cartoons.jpg";
-import artistPortrait from "@/assets/artist-portrait.jpg";
+import artistPortrait from "@/assets/image.png";
 import illustration1 from "@/assets/illustration-1.jpg";
 import illustration2 from "@/assets/illustration-2.jpg";
 import illustration3 from "@/assets/illustration-3.jpg";
@@ -19,7 +19,7 @@ import book3 from "@/assets/book-3.jpg";
 
 const carouselSlides = [
   {
-    image: heroStudio,
+    image: artistPortrait,
     title: "O Traço de Orlandeli",
     subtitle: "Cartuns, ilustrações e histórias que encantam há mais de 20 anos",
     cta: { label: "Conheça a Arte", link: "/portfolio" },
@@ -46,23 +46,23 @@ const illustrations = [
 ];
 
 const featuredBooks = [
-  { 
-    image: bookYang1, 
-    title: "O Mundo de Yang - Vol. 1", 
+  {
+    image: bookYang1,
+    title: "O Mundo de Yang - Vol. 1",
     price: "R$ 49,90",
-    link: "/loja" 
+    link: "/loja"
   },
-  { 
-    image: book2, 
-    title: "Crônicas Urbanas", 
+  {
+    image: book2,
+    title: "Crônicas Urbanas",
     price: "R$ 39,90",
-    link: "/loja" 
+    link: "/loja"
   },
-  { 
-    image: book3, 
-    title: "Bichos da Floresta", 
+  {
+    image: book3,
+    title: "Bichos da Floresta",
     price: "R$ 35,90",
-    link: "/loja" 
+    link: "/loja"
   },
 ];
 
@@ -93,7 +93,7 @@ export default function Index() {
             transition={{ duration: 0.7 }}
             className="absolute inset-0"
           >
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${carouselSlides[currentSlide].image})` }}
             />
@@ -127,7 +127,7 @@ export default function Index() {
 
         {/* Carousel Controls */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-4">
-          <button 
+          <button
             onClick={prevSlide}
             className="p-2 rounded-full bg-background/20 hover:bg-background/40 backdrop-blur transition-colors"
           >
@@ -138,15 +138,14 @@ export default function Index() {
               <button
                 key={idx}
                 onClick={() => goToSlide(idx)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  idx === currentSlide 
-                    ? "bg-background w-8" 
-                    : "bg-background/40 hover:bg-background/60"
-                }`}
+                className={`w-3 h-3 rounded-full transition-all ${idx === currentSlide
+                  ? "bg-background w-8"
+                  : "bg-background/40 hover:bg-background/60"
+                  }`}
               />
             ))}
           </div>
-          <button 
+          <button
             onClick={nextSlide}
             className="p-2 rounded-full bg-background/20 hover:bg-background/40 backdrop-blur transition-colors"
           >
@@ -181,8 +180,8 @@ export default function Index() {
                 className="card-artistic group cursor-pointer overflow-hidden"
               >
                 <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={item.image} 
+                  <img
+                    src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -215,9 +214,9 @@ export default function Index() {
               viewport={{ once: true }}
               className="image-frame aspect-square max-w-md mx-auto md:mx-0"
             >
-              <img 
-                src={artistPortrait} 
-                alt="Orlandeli" 
+              <img
+                src={artistPortrait}
+                alt="Orlandeli"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -233,13 +232,13 @@ export default function Index() {
               </h2>
               <div className="section-divider !mx-0" />
               <p className="text-muted-foreground leading-relaxed">
-                Orlandeli é um cartunista e ilustrador brasileiro com mais de duas décadas 
-                de experiência na arte sequencial. Seu trabalho transita entre o humor cotidiano, 
-                a crítica social e narrativas fantásticas que encantam leitores de todas as idades.
+                Walmir Americo Orlandeli mora no Brasil e é um artista de quadrinhos, cartunista e ilustrador.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Criador do universo "O Mundo de Yang", Orlandeli combina influências orientais 
-                e brasileiras em histórias que exploram temas universais de amizade, coragem e autodescoberta.
+                É autor de diversas publicações. Como artista de quadrinhos, participou das antologias MSP 50 e Front.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Vencedor do Troféu HQMix em 2002 como "melhor revista de humor" (Grump), 2018 como "melhor publicação juvenil" (Chico Bento - Arvorada) e em 2024 como melhor design gráfico (Lusco-Fusco). Vencedor do CCXP Awards em 2022 (Chico Bento - Verdade).
               </p>
               <Link to="/sobre">
                 <Button className="bg-primary hover:bg-primary/90">
@@ -278,8 +277,8 @@ export default function Index() {
                 className="card-artistic group"
               >
                 <div className="aspect-[2/3] overflow-hidden rounded-t-lg">
-                  <img 
-                    src={book.image} 
+                  <img
+                    src={book.image}
                     alt={book.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -310,12 +309,12 @@ export default function Index() {
 
       {/* Yang CTA */}
       <section className="relative py-24 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${carouselYang})` }}
         />
         <div className="absolute inset-0 bg-accent/85" />
-        
+
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -327,7 +326,7 @@ export default function Index() {
               Explore O Mundo de Yang
             </h2>
             <p className="text-accent-foreground/90 text-lg mb-8">
-              Mergulhe no universo oriental fantástico criado por Orlandeli. 
+              Mergulhe no universo oriental fantástico criado por Orlandeli.
               Conheça os personagens, a história e os livros desta saga épica.
             </p>
             <Link to="/yang">

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { Award, BookOpen, Palette, Calendar } from "lucide-react";
 
-import artistPortrait from "@/assets/artist-portrait.jpg";
+import artistPortrait from "@/assets/image.png";
 import heroStudio from "@/assets/hero-studio.jpg";
 
 const timeline = [
@@ -24,12 +24,12 @@ export default function Sobre() {
     <Layout>
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroStudio})` }}
         />
         <div className="absolute inset-0 bg-foreground/70" />
-        
+
         <div className="relative z-10 container mx-auto px-4 text-center text-background">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -60,21 +60,13 @@ export default function Sobre() {
               </h2>
               <div className="section-divider !mx-0" />
               <p className="text-muted-foreground leading-relaxed">
-                Nascido e criado em São Paulo, Orlandeli descobriu sua paixão pelos quadrinhos 
-                ainda na infância, folheando as páginas de gibis emprestados da biblioteca do bairro. 
-                Autodidata, desenvolveu seu estilo único mesclando influências de mangás japoneses, 
-                comics americanos e a irreverência do humor brasileiro.
+                Walmir Americo Orlandeli mora no Brasil e é um artista de quadrinhos, cartunista e ilustrador.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Com mais de 20 anos de carreira, já ilustrou para editoras, agências de publicidade 
-                e veículos de comunicação. Seu trabalho se destaca pela expressividade dos personagens 
-                e pela capacidade de contar histórias que transitam entre o humor leve e temas mais 
-                profundos sobre a condição humana.
+                É autor de diversas publicações. Como artista de quadrinhos, participou das antologias MSP 50 e Front.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                "O Mundo de Yang", sua obra mais ambiciosa, nasceu do desejo de criar um universo 
-                fantástico que refletisse tanto suas influências orientais quanto a rica tradição 
-                narrativa brasileira. A saga continua em produção e já conquistou leitores de todas as idades.
+                Vencedor do Troféu HQMix em 2002 como "melhor revista de humor" (Grump), 2018 como "melhor publicação juvenil" (Chico Bento - Arvorada) e em 2024 como melhor design gráfico (Lusco-Fusco). Vencedor do CCXP Awards em 2022 (Chico Bento - Verdade).
               </p>
             </motion.div>
 
@@ -85,9 +77,9 @@ export default function Sobre() {
               className="order-1 md:order-2"
             >
               <div className="image-frame aspect-square max-w-md mx-auto">
-                <img 
-                  src={artistPortrait} 
-                  alt="Orlandeli" 
+                <img
+                  src={artistPortrait}
+                  alt="Orlandeli"
                   className="w-full h-full object-cover"
                 />
               </div>

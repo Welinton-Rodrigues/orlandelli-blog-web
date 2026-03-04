@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+# 🎨 Orlandeli — Cartunista e Ilustrador
 
-## Project info
+Site oficial do **Orlandeli**, cartunista e ilustrador brasileiro, criador de *O Mundo de Yang*. Showcasing de quadrinhos, ilustrações, blog e loja.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 📸 Visão Geral
 
-## How can I edit this code?
+O projeto é um site-portfólio completo com as seguintes seções:
 
-There are several ways of editing your application.
+- **Home** — Página inicial com destaques e apresentação
+- **Quadrinhos** — Galeria de quadrinhos com capas e leitura de páginas
+- **Portfólio** — Ilustrações organizadas por tags/categorias
+- **O Mundo de Yang** — Seção dedicada à série principal
+- **Blog** — Artigos e novidades
+- **Loja** — Integração com loja externa
+- **Sobre** — Biografia e informações sobre o artista
 
-**Use Lovable**
+## 🛠️ Tecnologias
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+| Camada | Tecnologia |
+|---|---|
+| Framework | [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) |
+| Build | [Vite 5](https://vitejs.dev/) |
+| Estilização | [Tailwind CSS 3](https://tailwindcss.com/) |
+| Componentes UI | [shadcn/ui](https://ui.shadcn.com/) (Radix UI) |
+| Animações | [Framer Motion](https://www.framer.com/motion/) |
+| Roteamento | [React Router 6](https://reactrouter.com/) |
+| Data Fetching | [TanStack Query](https://tanstack.com/query) |
+| CMS (Backend) | [Strapi](https://strapi.io/) |
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📁 Estrutura do Projeto
 
-**Use your preferred IDE**
+```
+src/
+├── components/       # Componentes reutilizáveis (Header, Footer, Layout, NavLink)
+│   └── ui/           # Componentes shadcn/ui
+├── hooks/            # Custom hooks (useQuadrinhos, useIlustracoes, etc.)
+├── lib/              # Utilitários, tipos e integração com Strapi
+├── pages/            # Páginas da aplicação
+│   ├── Index.tsx
+│   ├── Quadrinhos.tsx
+│   ├── Portfolio.tsx
+│   ├── Yang.tsx
+│   ├── Blog.tsx
+│   ├── Loja.tsx
+│   └── Sobre.tsx
+└── test/             # Testes automatizados
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Como Rodar
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Pré-requisitos
 
-Follow these steps:
+- [Node.js](https://nodejs.org/) (v18+)
+- npm ou bun
+- Instância do [Strapi](https://strapi.io/) rodando (para o CMS)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Instalação
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+# Clone o repositório
+git clone https://github.com/Welinton-Rodrigues/orlandelli-blog-web.git
+cd orlandelli-blog-web
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Instale as dependências
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Configure a URL do Strapi (crie/edite o arquivo .env)
+echo VITE_STRAPI_URL=http://localhost:1337 > .env
+
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+A aplicação estará disponível em `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Scripts Disponíveis
 
-**Use GitHub Codespaces**
+| Comando | Descrição |
+|---|---|
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | Build de produção |
+| `npm run preview` | Preview do build de produção |
+| `npm run lint` | Linting com ESLint |
+| `npm run test` | Rodar testes |
+| `npm run test:watch` | Testes em modo watch |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## ⚙️ Variáveis de Ambiente
 
-## What technologies are used for this project?
+| Variável | Descrição | Padrão |
+|---|---|---|
+| `VITE_STRAPI_URL` | URL da API Strapi | `http://localhost:1337` |
 
-This project is built with:
+## 📝 Licença
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Este projeto é privado e de uso exclusivo do autor.
