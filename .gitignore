@@ -39,8 +39,7 @@ Desktop.ini
 bun.lockb
 
 # Strapi (CMS separado)
-strapi/
-
+#strapi/
 # Misc
 *.local
 *.jpeg
