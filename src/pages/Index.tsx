@@ -9,13 +9,11 @@ import heroStudio from "@/assets/hero-studio.jpg";
 import carouselYang from "@/assets/carousel-yang.jpg";
 import carouselCartoons from "@/assets/carousel-cartoons.jpg";
 import artistPortrait from "@/assets/image.png";
-import illustration1 from "@/assets/illustration-1.jpg";
-import illustration2 from "@/assets/illustration-2.jpg";
-import illustration3 from "@/assets/illustration-3.jpg";
-import illustration4 from "@/assets/illustration-4.jpg";
-import bookYang1 from "@/assets/book-yang-1.jpg";
+import { useIlustracoes } from "@/hooks/useIlustracoes";
+import bookYang1 from "@/assets/Yang_OmundoDoMeio.webp";
 import book2 from "@/assets/book-2.jpg";
 import book3 from "@/assets/book-3.jpg";
+
 
 const carouselSlides = [
   {
@@ -38,12 +36,7 @@ const carouselSlides = [
   },
 ];
 
-const illustrations = [
-  { image: illustration1, title: "Personagem Fantástico" },
-  { image: illustration2, title: "Cidade em Quadrinhos" },
-  { image: illustration3, title: "Floresta Encantada" },
-  { image: illustration4, title: "Humor Cotidiano" },
-];
+
 
 const featuredBooks = [
   {
@@ -68,6 +61,8 @@ const featuredBooks = [
 
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { data: todasIlustracoes = [], isLoading: isLoadingIlustracoes } = useIlustracoes();
+  const illustrations = todasIlustracoes.slice(0, 4);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -170,27 +165,39 @@ export default function Index() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {illustrations.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="card-artistic group cursor-pointer overflow-hidden"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-medium text-foreground">{item.title}</h3>
-                </div>
-              </motion.div>
-            ))}
+            {isLoadingIlustracoes ? (
+              <div className="col-span-2 md:col-span-4 text-center py-10 text-muted-foreground">
+                Carregando ilustrações...
+              </div>
+            ) : illustrations.length === 0 ? (
+              <div className="col-span-2 md:col-span-4 text-center py-10 text-muted-foreground">
+                Nenhuma ilustração adicionada ainda.
+              </div>
+            ) : (
+              illustrations.map((item, idx) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="card-artistic group overflow-hidden"
+                >
+                  {item.imagemUrl && (
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        src={item.imagemUrl}
+                        alt={item.titulo}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  )}
+                  <div className="p-4">
+                    <h3 className="font-medium text-foreground">{item.titulo}</h3>
+                  </div>
+                </motion.div>
+              ))
+            )}
           </div>
 
           <div className="text-center mt-10">

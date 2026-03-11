@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar, MessageCircle, User, Send, Loader2 } from "lucide-react";
 import { usePostsBlog } from "@/hooks/usePostsBlog";
 import type { PostBlog } from "@/lib/types";
+import ReactMarkdown from 'react-markdown';
 
 export default function Blog() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -81,11 +82,10 @@ export default function Blog() {
               <Badge
                 key={category}
                 variant={selectedCategories.includes(category) ? "default" : "outline"}
-                className={`cursor-pointer px-4 py-2 text-sm transition-all ${
-                  selectedCategories.includes(category)
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:bg-muted"
-                }`}
+                className={`cursor-pointer px-4 py-2 text-sm transition-all ${selectedCategories.includes(category)
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-muted"
+                  }`}
                 onClick={() => toggleCategory(category)}
               >
                 {category}
@@ -225,10 +225,9 @@ export default function Blog() {
                 </div>
 
                 {/* Rich text content */}
-                <div
-                  className="prose prose-lg max-w-none text-foreground leading-relaxed"
-                  dangerouslySetInnerHTML={{ __html: selectedPost.conteudo }}
-                />
+                <div className="prose prose-lg max-w-none text-foreground leading-relaxed">
+                  <ReactMarkdown>{selectedPost.conteudo}</ReactMarkdown>
+                </div>
 
                 {/* Comments Section */}
                 <div className="border-t border-border pt-8 space-y-6">
